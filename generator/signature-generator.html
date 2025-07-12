@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=content_copy" />
+    <title>Email Signature Generator</title>
+</head>
+<body class="generator-body">
+    <h3 class="generator-title">📧 Email Signature Generator</h3>
+    
+    <div class="generator-container">
+        <div class="form-section">
+            <h4 class="generator-section-title">Your Details</h4>
+            <form id="signature-form">
+                <label>Full name: </label>
+                <input type="text" id="userName" placeholder="Definitely Human" oninput="generateSignature()">
+                
+                <label>Job title: </label>
+                <input type="text" id="userTitle" placeholder="Human LLM" oninput="generateSignature()">
+                
+                <label>Email: </label>
+                <input type="email" id="email" placeholder="hello@doublehelix.dev" oninput="generateSignature()">
+                
+                <label>Phone: </label>
+                <input type="tel" id="phone" placeholder="+371 123456789" oninput="generateSignature()">
+                
+                <label>Photo URL:</label>
+                <input type="url" id="photoUrl" value="https://raw.githubusercontent.com/doublehelix-anastasia-belodumova/dh_assets/main/logo.png" oninput="generateSignature()">
+                
+                <div style="display: flex; vertical-align: middlel; align-items: center; gap: 8px;">
+                    <label for="wordmark">Gradient wordmark?</label>
+                    <input type="checkbox" id="wordmark" oninput="generateSignature()">
+                </div>
+            </form>
+        </div>
+
+        <div class="preview-section">
+            <div id="signature-output"></div>
+            <button class="copy-button" onclick="copyRichText()">
+                <span class="material-symbols-outlined">content_copy</span>
+                <span id="copy-button-text">Copy</span>
+            </button>
+        </div>
+    </div>
+    <script src="signature-generator.js"></script>
+</body>
+<template id="signature-template">
+    <table cellpadding="0" cellspacing="0" style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: #333; font-size: 10px; line-height: 0.8;">
+        <tr>
+            <!-- Logo & Avatar -->
+            <td style="padding: 4px; vertical-align: top; text-align: center;">
+                <img src="{PHOTO_URL}" width="60" 
+                style="display: block; margin: 0 auto; border-radius: 100%" alt="Profile Photo">
+                <img src="{WORDMARK_URL}" 
+                width="80" style="display: block;" alt="Company Logo">  
+            </td>
+
+            <!-- Text Content -->
+            <td valign="top" style="vertical-align: top; padding-left: 10px; padding-top: 6px;">
+                <p style="margin: 0; color: #000000; font-size: larger;">
+                    {USER_NAME} |
+                    <span style="margin: 0; color: #7a51c7;"> {USER_TITLE}</span>
+                </p>
+                <p style="margin-bottom: 10px;">@ Double Helix Technologies SIA</p>
+                <div style="color: #7a51c7; border-top: 1px solid #7a51c7; white-space: nowrap; vertical-align: middle;">
+                    <p>
+                        <a href="https://doublehelix.dev" style="color: #7a51c7;">doublehelix.dev</a>
+                        <span> | </span>
+                        <a href="https://www.linkedin.com/company/double-helix-technologies/" style="color: #7a51c7;">
+                            <img src="https://raw.githubusercontent.com/doublehelix-anastasia-belodumova/dh_assets/main/icons8-linkedin-24.png" alt="LinkedIn" style="width: 12px; vertical-align: middle;">
+                        </a>
+                    </p>
+                    <p>
+                        <a href="mailto:{EMAIL}" style="color: #7a51c7">{EMAIL}</a>
+                        <span> | </span>
+                        <a href="tel:{PHONE}" style="color: #7a51c7;">{PHONE}</a>
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</template>
+</html>

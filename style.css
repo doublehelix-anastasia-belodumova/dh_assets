@@ -1,3 +1,146 @@
 :root {
   --accent-color: #7a51c7;
+  --shadow-color: #7a51c74d;
+
+body {
+  min-width: 600px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.generator-body {
+    max-width: 800px;
+    min-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f1fd;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.generator-container {
+    display: grid;
+    width: 100%;
+    max-width: 800px;
+    min-width: 600px;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background: #ece1ff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.form-section {
+    border-right: 1px solid #eee;
+    padding-right: 20px;
+}
+
+.form-section label {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-section span {
+    font-weight: bold;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 8px 8px 8px;
+    border: 0px solid;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.form-section input[type="checkbox"] {
+    margin-top: 13px;
+    width: fit-content; 
+    height: fit-content;
+    color: var(--accent-color);
+}
+
+.form-section input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--shadow-color);
+}
+
+.preview-section {
+    padding: 10px;
+    width: 470px;
+    background-color: white;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+}
+
+#signature-output {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.copy-button {
+    color: var(--accent-color);
+    background-color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    height: 40px;
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.copy-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.copy-button.success {
+    background-color: #22c55e;
+    border: none;
+    color: white;
+}
+
+.copy-button.success:hover {
+    background-color: #16a34a;
+    border-color: none;
+}
+
+.generator-title {
+    text-align: left;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.generator-section-title {
+    margin-top: 0;
+    color: var(--accent-color);
+}
 }
